@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>I have a question 4 U...</title>
+</head>
+
+<body>
+    <div class="d-flex justify-content-center container-fluid mt-5 mb-2">
+        <div>
+            <h2>Will you be my girlfriend? 🙄</h2>
+        </div>
+    </div>
+    <div id="answer-block" class="d-flex justify-content-center container-fluid">
+        <div class="w-50 d-flex justify-content-end mx-2">
+            <button id="btn-no" class="btn btn-lg btn-danger">No</button>
+        </div>
+        <div class="w-50 d-flex justify-content-start mx-2">
+            <button id="btn-yes" class="btn btn-lg btn-success">Yes</button>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center container-fluid mt-5" >
+        <div id="after-yes" style="display: none;">
+            <h6>😍 I knew you would say yes!! 😍</h6>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $('#btn-no').hover(function () {
+            $(this).css('position', 'absolute')
+            $(this).css('right', `${getRandomArbitrary(1, 9)*10}%`)
+            $(this).css('top', `${getRandomArbitrary(1, 9)*10}%`)
+        });
+
+        $('#btn-yes').hover(function () {
+            $('#btn-no').show(1000)
+        });
+
+        $('#btn-yes').click(function (e) { 
+            e.preventDefault()
+            $('#after-yes').toggle()
+
+            $('#answer-block').removeClass('d-flex justify-content-center')
+            $('#answer-block').css('display', 'none')
+        });
+
+        function getRandomArbitrary(min, max) {
+            return Math.random() * (max - min) + min
+        }
+    </script>
+</body>
+
+</html>
