@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>I have a question 4 U...</title>
+    <title>Crazy Askes | Demo</title>
 </head>
 
 <body>
     <div class="d-flex justify-content-center container-fluid mt-5 mb-2">
         <div>
-            <h2>Silvia ¿Quieres un beso? 🙄</h2>
+            <h2 id="question"></h2>
         </div>
     </div>
     <div id="answer-block" class="d-flex justify-content-center container-fluid">
@@ -24,12 +24,12 @@
             <button id="btn-no" class="btn btn-lg btn-danger">No</button>
         </div>
         <div class="w-50 d-flex justify-content-start mx-2">
-            <button id="btn-yes" class="btn btn-lg btn-success">Sí</button>
+            <button id="btn-yes" class="btn btn-lg btn-success">Yes</button>
         </div>
     </div>
     <div class="d-flex justify-content-center container-fluid mt-5" >
         <div id="after-yes" style="display: none;">
-            <h6>Sabía que dirías que sí 🥴🥴🥴</h6>
+            <h6>I knew you would say yes! 😂😂🤣</h6>
         </div>
     </div>
 
@@ -46,26 +46,25 @@
         crossorigin="anonymous"></script>
 
     <script>
-        $('#btn-no').hover(function () {
-            $(this).css('position', 'absolute')
-            $(this).css('right', `${getRandomArbitrary(1, 9)*10}%`)
-            $(this).css('top', `${getRandomArbitrary(1, 9)*10}%`)
-        });
+        const questions = ['Would you marry a horse?','Have you tried ostrich eggs?','Have you ever slept like a bat?','A sloth is less lazy than you?','Every morning do you imitate a rooster?','Do you think dogs are not man`s best friend?']
+        $('#question').text(questions[parseInt(Math.random() * (questions.length - 0) + 0)]);
 
-        $('#btn-yes').hover(function () {
-            $('#btn-no').show(1000)
+        $('#btn-no').hover(function () {
+            $(this).css('position', 'absolute');
+            $(this).css('right', `${getRandomArbitrary(1, 9)*10}%`);
+            $(this).css('top', `${getRandomArbitrary(1, 9)*10}%`);
         });
 
         $('#btn-yes').click(function (e) { 
-            e.preventDefault()
-            $('#after-yes').toggle()
-
-            $('#answer-block').removeClass('d-flex justify-content-center')
-            $('#answer-block').css('display', 'none')
+            e.preventDefault();
+            $('#after-yes').toggle();
+            $('#answer-block').removeClass('d-flex justify-content-center');
+            $('#answer-block').css('display', 'none');
+            setTimeout(function(){ location.reload() }, 1000);
         });
 
         function getRandomArbitrary(min, max) {
-            return Math.random() * (max - min) + min
+            return Math.random() * (max - min) + min;
         }
     </script>
 </body>
